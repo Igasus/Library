@@ -1,0 +1,49 @@
+﻿@model Library.Application.Services.Books.Dto.BookDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.PagesAmount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.PagesAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.CreationAddress.Country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.CreationAddress.City)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Update" asp-route-id="@Model.Id">Update</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+    <a asp-action="Index">Go to Books List</a>
+</div>

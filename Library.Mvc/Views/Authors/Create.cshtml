@@ -1,0 +1,43 @@
+﻿@model Library.Application.Services.Authors.Dto.AuthorDtoInput
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Author</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label class="control-label">Id</label>
+                <input disabled="true" value="Auto-Generated" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthAddress.Country" class="control-label"></label>
+                <input asp-for="BirthAddress.Country" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthAddress.City" class="control-label"></label>
+                <input asp-for="BirthAddress.City" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Go to Authors List</a>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Library.Application.Services.Authors.Dto.AuthorDto>
+
+@{
+    ViewData["Title"] = "Authors List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Authors" asp-action="Index">
+    <p>
+        Title: <input type="text" name="searchText" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(a => a.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(a => a.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(a => a.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(a => a.BirthAddress.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(a => a.BirthAddress.City)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var author in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(authors => author.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(authors => author.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(authors => author.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(authors => author.BirthAddress.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(authors => author.BirthAddress.City)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@author.Id">Details</a> |
+                <a asp-action="Update" asp-route-id="@author.Id">Update</a> |
+                <a asp-action="Delete" asp-route-id="@author.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

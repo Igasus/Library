@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Library.Application.Services.Books.Dto.BookDto>
+
+@{
+    ViewData["Title"] = "Books List";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Books" asp-action="Index">
+    <p>
+        Title: <input type="text" name="searchText" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(b => b.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(b => b.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(b => b.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(b => b.PagesAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(b => b.CreationAddress.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(b => b.CreationAddress.City)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(books => book.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(books => book.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(books => book.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(books => book.PagesAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(books => book.CreationAddress.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(books => book.CreationAddress.City)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@book.Id">Details</a> |
+                <a asp-action="Update" asp-route-id="@book.Id">Update</a> |
+                <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

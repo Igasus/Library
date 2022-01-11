@@ -1,0 +1,39 @@
+﻿@model Library.Application.Services.Books.Dto.BookDto
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Are you sure you want to delete this entity?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(b => b.CreationAddress.Country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(b => b.CreationAddress.City)
+        </dd>
+    </dl>
+    
+    <form asp-action="ConfirmDeletion">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Go to Books List</a>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+﻿@model Library.Application.Services.Authors.Dto.AuthorDto
+
+@{
+    ViewData["Title"] = "Add Book";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Author</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(a => a.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(a => a.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(a => a.FullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(a => a.FullName)
+        </dd>
+    </dl>
+    <hr />
+</div>
+
+<div>
+    <h4>Book</h4>
+    <form asp-action="AddBook">
+        <input hidden="true" name="AuthorId" value="@Model.Id" />
+        <div class="form-group">
+            <label for="BookId" class="control-label"></label>
+            <input name="BookId" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Details" asp-route-id="@Model.Id">Back to Author Details</a>
+</div>
